@@ -2,8 +2,8 @@
 #include <libopencm3/stm32/f1/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 
-static void my_delay_1(void) {
-  int i = 72e6 / 2 / 4;
+static void delay_seconds(int seconds) {
+  int i = 72000000 / 2 / 4 * seconds;
   while (i > 0) {
     i--;
     __asm__("nop");
@@ -19,6 +19,6 @@ int main(void) {
 
   while (1) {
     gpio_toggle(GPIOC, GPIO13);
-    my_delay_1();
+    delay_seconds(1);
   }
 }

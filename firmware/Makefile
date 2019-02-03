@@ -21,9 +21,8 @@
 
 BINARY = main
 
-format:
-	clang-format -i *.c
-
 # include ../../Makefile.include
 include libopencm3-examples-stm32f1.mk
 
+format:
+	clang-format -i *.c
